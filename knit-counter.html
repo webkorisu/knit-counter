@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Knit Counter</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&family=M+PLUS+Rounded+1c:wght@400;800&display=swap');
@@ -320,6 +320,10 @@
     display: flex;
     align-items: center;
     gap: 4px;
+  }
+
+  @media (pointer: coarse) {
+    .hint { display: none; }
   }
 
   .key-badge {
