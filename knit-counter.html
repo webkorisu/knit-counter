@@ -38,9 +38,11 @@
     content: '';
     position: fixed; inset: 0;
     background:
-      radial-gradient(ellipse at 20% 20%, #fce7f3 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 80%, #ede9fe 0%, transparent 50%),
-      radial-gradient(ellipse at 50% 50%, #ecfdf5 0%, transparent 60%);
+      radial-gradient(ellipse at 20% 20%, #f9a8d4 0%, transparent 45%),
+      radial-gradient(ellipse at 80% 15%, #d8b4fe 0%, transparent 45%),
+      radial-gradient(ellipse at 80% 80%, #c4b5fd 0%, transparent 45%),
+      radial-gradient(ellipse at 20% 80%, #f0abfc 0%, transparent 45%),
+      radial-gradient(ellipse at 50% 50%, #fce7f3 0%, transparent 60%);
     z-index: 0;
   }
 
@@ -74,6 +76,8 @@
     width: 100%;
     max-width: 480px;
     padding: 20px;
+    min-height: 100vh;
+    justify-content: center;
   }
 
   /* タイトル */
@@ -278,22 +282,40 @@
   .btn-main:active { transform: scale(0.95); }
 
   .btn-up {
-    background: linear-gradient(135deg, #f0abfc, #a78bfa);
+    background: #fb923c;
     color: white;
-    box-shadow: 0 6px 20px rgba(167,139,250,0.4);
+    box-shadow:
+      0 4px 0 #c2410c,
+      4px 0 0 rgba(251,146,60,0.3),
+      -4px 0 0 rgba(251,146,60,0.3),
+      0 8px 20px rgba(251,146,60,0.25);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.15);
   }
-  .btn-up:hover { box-shadow: 0 8px 28px rgba(167,139,250,0.5); transform: translateY(-1px); }
+  .btn-up:hover { filter: brightness(1.07); }
+  .btn-up:active {
+    box-shadow: 0 1px 0 #c2410c, inset 0 2px 4px rgba(0,0,0,0.15);
+    transform: translateY(3px);
+  }
 
   .btn-down {
-    background: linear-gradient(135deg, #fde68a, #fca5a5);
+    background: #34d399;
     color: white;
-    box-shadow: 0 6px 20px rgba(252,165,165,0.35);
+    box-shadow:
+      0 4px 0 #047857,
+      4px 0 0 rgba(52,211,153,0.3),
+      -4px 0 0 rgba(52,211,153,0.3),
+      0 8px 20px rgba(52,211,153,0.25);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.15);
     flex: 0 0 auto;
     width: 80px;
     font-size: 1.5rem;
     padding: 18px 0;
   }
-  .btn-down:hover { transform: translateY(-1px); }
+  .btn-down:hover { filter: brightness(1.07); }
+  .btn-down:active {
+    box-shadow: 0 1px 0 #047857, inset 0 2px 4px rgba(0,0,0,0.15);
+    transform: translateY(3px);
+  }
 
   .btn-label { font-size: 0.7rem; opacity: 0.85; letter-spacing: 0.05em; }
 
@@ -336,12 +358,14 @@
   }
 
   @media (prefers-color-scheme: dark) {
-    body { background: var(--cream) !important; }
+    body { background: #fdf2f8 !important; }
     body::before {
       background:
-        radial-gradient(ellipse at 20% 20%, #fce7f3 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 80%, #ede9fe 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 50%, #ecfdf5 0%, transparent 60%) !important;
+        radial-gradient(ellipse at 20% 20%, #f9a8d4 0%, transparent 45%),
+        radial-gradient(ellipse at 80% 15%, #d8b4fe 0%, transparent 45%),
+        radial-gradient(ellipse at 80% 80%, #c4b5fd 0%, transparent 45%),
+        radial-gradient(ellipse at 20% 80%, #f0abfc 0%, transparent 45%),
+        radial-gradient(ellipse at 50% 50%, #fce7f3 0%, transparent 60%) !important;
     }
     .main-card { background: white !important; }
   }
