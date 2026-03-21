@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="color-scheme" content="light only">
 <title>Knit Counter</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&family=M+PLUS+Rounded+1c:wght@400;800&display=swap');
@@ -18,11 +19,11 @@
     --shadow: rgba(167,139,250,0.25);
   }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; color-scheme: light only; }
 
   body {
     font-family: 'Zen Maru Gothic', sans-serif;
-    background: var(--cream);
+    background: var(--cream) !important;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -296,6 +297,18 @@
 
   .btn-label { font-size: 0.7rem; opacity: 0.85; letter-spacing: 0.05em; }
 
+  @media (pointer: coarse) {
+    .pc-only { display: none; }
+    .btn-main {
+      justify-content: center;
+    }
+    .btn-down {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
   /* リセット */
   .btn-reset {
     border: 2px solid #e5e7eb;
@@ -322,8 +335,16 @@
     gap: 4px;
   }
 
-  @media (pointer: coarse) {
-    .hint { display: none; }
+  @media (prefers-color-scheme: dark) {
+    body { background: var(--cream) !important; }
+    body::before {
+      background:
+        radial-gradient(ellipse at 20% 20%, #fce7f3 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, #ede9fe 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, #ecfdf5 0%, transparent 60%) !important;
+    }
+    .main-card { background: white !important; }
+  }
   }
 
   .key-badge {
@@ -473,7 +494,7 @@
     <div class="btn-area">
       <button class="btn-main btn-up" id="btnUp" onclick="countUp()">
         <span>＋ カウント</span>
-        <span class="btn-label">Space / Enter</span>
+        <span class="btn-label pc-only">Space / Enter</span>
       </button>
       <button class="btn-main btn-down" id="btnDown" onclick="countDown()">－</button>
     </div>
