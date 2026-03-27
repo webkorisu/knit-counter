@@ -81,6 +81,27 @@
   }
 
   /* タイトル */
+  .title-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .sub-title {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.25em;
+    background: linear-gradient(135deg, #f9a8d4, #c084fc, #818cf8);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: titleShimmer 4s ease infinite;
+    opacity: 0.9;
+  }
+
   .title {
     font-family: 'M PLUS Rounded 1c', sans-serif;
     font-weight: 800;
@@ -482,10 +503,13 @@
 <div class="deco-float">⭐</div>
 
 <div class="app">
-  <div class="title">
-    <span class="fairy">🧚</span>
-    <span class="title-text">Knit Counter</span>
-    <span class="fairy">🧚</span>
+  <div class="title-wrap">
+    <span class="sub-title">✿ YUCCHI'S ✿</span>
+    <div class="title">
+      <span class="fairy">🧚</span>
+      <span class="title-text">Knit Counter</span>
+      <span class="fairy">🧚</span>
+    </div>
   </div>
 
   <div class="main-card-wrap">
