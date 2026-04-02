@@ -581,9 +581,27 @@
   const doneBanner = document.getElementById('doneBanner');
   const unitSelect = document.getElementById('unitSelect');
 
-  unitSelect.addEventListener('change', () => {
-    updateDisplay();
-  });
+  // 保存・読み込み
+  function saveData() {
+    localStorage.setItem('kc_count', count);
+    localStorage.setItem('kc_unit', getUnit());
+    localStorage.setItem('kc_goal', goalInput.value);
+    localStorage.setItem('kc_laps', JSON.stringify(laps));
+  }
+
+  function loadData() {
+    const savedCount = localStorage.getItem('kc_count');
+    const savedUnit  = localStorage.getItem('kc_unit');
+    const savedGoal  = localStorage.getItem('kc_goal');
+    const savedLaps  = localStorage.getItem('kc_laps');
+    if (savedCount !== null) count = parseInt(savedCount);
+    if (savedUnit)  unitSelect.value = savedUnit;
+    if (savedGoal)  goalInput.value = savedGoal;
+    if (savedLaps)  { laps = JSON.parse(savedLaps); renderHistory(); }
+  }
+
+  unitSelect.addEventListener('change', () => { updateDisplay(); saveData(); });
+  goalInput.addEventListener('input', () => { updateDisplay(); saveData(); });
 
   function getUnit() { return unitSelect.value; }
 
@@ -632,6 +650,7 @@
     count++;
     bump();
     updateDisplay();
+    saveData();
   }
 
   function countDown() {
@@ -639,6 +658,7 @@
     count--;
     bump();
     updateDisplay();
+    saveData();
   }
 
   function resetCount() {
@@ -649,6 +669,7 @@
     count = 0;
     goalReached = false;
     updateDisplay();
+    saveData();
   }
 
   function renderHistory() {
@@ -709,6 +730,7 @@
     }
   });
 
+  loadData();
   updateDisplay();
 </script>
 </body>
