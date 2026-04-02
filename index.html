@@ -730,6 +730,10 @@
     }
   });
 
+  if (!localStorage.getItem('kc_initialized')) {
+    localStorage.clear();
+    localStorage.setItem('kc_initialized', 'true');
+  }
   loadData();
   updateDisplay();
 </script>
